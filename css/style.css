@@ -1,0 +1,496 @@
+/* Battle Simulator - CSS */
+/* Battle Simulator - Reset Sheet */
+/* ========================================
+ Meyer Web CSS Reset Sheet - Modified
+ http://meyerweb.com/eric/tools/css/reset/ 
+ v2.0 | 20110126
+ License: none (public domain)
+======================================== */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* button and form elements (input + select) not included */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: top; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Battle Simulator - Grid Framework */
+/*========================================*/
+/* User Defined Grid Variables */
+/*========================================*/
+/* Number of grid columns */
+/* Boundaries for fluid rows */
+/* Break points for fixed rows */
+/* Sticky footer height */
+/* Must be exact height of footer - taking into account borders of rows + container */
+/*========================================*/
+/* Clearfix */
+/*========================================*/
+.clearfix:before, .character-select:before, .simulator:before,
+.clearfix:after,
+.character-select:after,
+.simulator:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after, .character-select:after, .simulator:after,
+.container:after {
+  clear: both; }
+
+/*========================================*/
+/* Containers - fluid */
+/*========================================*/
+/* Fluid container with margins */
+/* Fluid container without margins - full width */
+/* HTML containers for inline styling */
+.container {
+  margin-right: 5%;
+  margin-left: 5%; }
+
+.container-full {
+  margin-right: auto;
+  margin-left: auto; }
+
+/*========================================*/
+/* Container - fixed + breakpoints */
+/*========================================*/
+/*========================================*/
+/* Rows */
+/*========================================*/
+/* Normal row - allows combined external (container) + internal (column) margins */
+/* Full width row - without external (container) margins */
+/* Combine with 'column-full' to remove extra internal (column) margins */
+/* Normal row - with purely external (container + row) margins - useful for borders */
+/* Combine with 'column-full' to remove extra internal (column) margins */
+/*========================================*/
+/* Boundaries - fluid rows */
+/*========================================*/
+/* Set boundaries for full width fluid rows (or containers) - e.g. headers + footers */
+/*========================================*/
+/* Columns */
+/*========================================*/
+/* Columns with margins */
+/* Columns without margins - full width */
+/*========================================*/
+/* Sticky Footer */
+/*========================================*/
+/* Requires margin:0 and height:100% on html + body elements */
+/* Be careful using margins on/near the footer - use padding instead */
+/* Use these classes directly or apply via @extend */
+/* Main content wrapper */
+.page-container {
+  min-height: 100%;
+  height: auto !important;
+  /* Sets minimum height in IE6 and below */
+  height: 100%;
+  margin: 0 auto -32px; }
+
+/* Sticky footer */
+/* .push placed at end of .page-container */
+/* .sticky-footer is only element placed outside of .page-container */
+/* Footer is pulled up by the negative margin on the page-container to occupy the empty space created by .push */
+.push,
+.sticky-footer {
+  height: 32px;
+  /* Height of the footer */
+  clear: both; }
+
+html, body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Quantico', Arial, sans-serif; }
+
+/* ========================================
+  Variables
+======================================== */
+/* ========================================
+  Default Styles
+======================================== */
+h2 {
+  color: #d6b54e; }
+
+h3 {
+  font-weight: 700; }
+
+/* ========================================
+  header
+======================================== */
+header {
+  position: relative;
+  height: 100px; }
+  header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    /* Offset by half the width of the header */
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Oleo Script'; }
+
+/* ========================================
+  content
+======================================== */
+.content {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: auto; }
+  @media (min-width: 480px) {
+    .content {
+      width: auto; } }
+  @media (min-width: 768px) {
+    .content {
+      width: 750px; } }
+  @media (min-width: 992px) {
+    .content {
+      width: 970px; } }
+  @media (min-width: 1200px) {
+    .content {
+      width: 1170px; } }
+
+/* ----------------------------------------
+  content: character-select
+---------------------------------------- */
+.character-select {
+  display: block;
+  margin-right: -15px;
+  margin-left: -15px;
+  background: -webkit-linear-gradient(#002134, #011d2b);
+  background: -o-linear-gradient(#002134, #011d2b);
+  background: -moz-linear-gradient(#002134, #011d2b);
+  background: linear-gradient(#002134, #011d2b);
+  /* internal and external shadows */
+  -webkit-box-shadow: 0px 0px 6px 10px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+  -moz-box-shadow: 0px 0px 6px 10px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+  box-shadow: 0px 0px 0px 8px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+  border: 2px solid #2d8db5;
+  border-radius: 10px;
+  position: relative;
+  height: auto;
+  padding: 15px;
+  text-align: center; }
+  .character-select h1 {
+    margin-bottom: 20px;
+    font-size: 20px; }
+  .character-select h1, .character-select form {
+    color: #d6b54e; }
+  .character-select input[type="text"], .character-select .profession, .character-select .r1-c1, .character-select .r2-c1, .character-select .r2-c2 {
+    margin: 3px 0 20px;
+    border: 1px solid #274964;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #03080b;
+    color: #91cfe6; }
+  .character-select input[type="text"] {
+    margin: 3px 0 20px;
+    width: 280px;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Quantico';
+    font-size: 16px; }
+  .character-select .profession {
+    display: inline-block;
+    margin: 3px 5px 20px;
+    height: 260px;
+    width: 200px;
+    padding: 5px 0;
+    background-color: #03080b; }
+    .character-select .profession img {
+      max-height: 100%;
+      cursor: pointer; }
+  .character-select .character-select-description {
+    margin: 0 auto 20px auto;
+    height: auto;
+    width: 280px; }
+    .character-select .character-select-description div {
+      padding: 5px 0; }
+    .character-select .character-select-description .r1-c1 {
+      min-height: 44px;
+      margin-top: 0;
+      margin-bottom: 5px;
+      border-radius: 5px; }
+    .character-select .character-select-description .r2-c1, .character-select .character-select-description .r2-c2 {
+      display: inline-block;
+      margin-bottom: 0;
+      min-height: 62px;
+      width: 50%; }
+    .character-select .character-select-description .r2-c1 {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none; }
+    .character-select .character-select-description .r2-c2 {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none; }
+  .character-select .submit {
+    display: inline-block;
+    border: 1px solid #274964;
+    border-radius: 10px;
+    height: 40px;
+    width: auto;
+    background: -webkit-linear-gradient(#002134, #011d2b);
+    background: -o-linear-gradient(#002134, #011d2b);
+    background: -moz-linear-gradient(#002134, #011d2b);
+    background: linear-gradient(#002134, #011d2b);
+    padding: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    /* Prevent highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0 auto 20px auto;
+    width: 280px; }
+    .character-select .submit:hover {
+      border: 1px solid #2d8db5;
+      -webkit-transition: border 0.2s;
+      transition: border 0.2s; }
+
+/* ----------------------------------------
+  content: simulator
+---------------------------------------- */
+.simulator {
+  display: block;
+  margin-right: -15px;
+  margin-left: -15px;
+  background: -webkit-linear-gradient(#002134, #011d2b);
+  background: -o-linear-gradient(#002134, #011d2b);
+  background: -moz-linear-gradient(#002134, #011d2b);
+  background: linear-gradient(#002134, #011d2b);
+  /* internal and external shadows */
+  -webkit-box-shadow: 0px 0px 6px 10px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+  -moz-box-shadow: 0px 0px 6px 10px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+  box-shadow: 0px 0px 0px 8px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+  border: 2px solid #2d8db5;
+  border-radius: 10px;
+  display: none;
+  height: auto; }
+  .simulator h2 {
+    padding-left: 10px; }
+
+.player, .battle, .computer {
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.player, .computer {
+  width: 25%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  .player .player-stats, .player .player-inventory, .player .computer-stats, .player .computer-inventory, .player .simulator-options, .computer .player-stats, .computer .player-inventory, .computer .computer-stats, .computer .computer-inventory, .computer .simulator-options {
+    margin: 3px 0 20px;
+    border: 1px solid #274964;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #03080b;
+    color: #91cfe6;
+    height: auto; }
+
+.battle {
+  width: 50%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.battle-window, .battle-menu {
+  margin: 3px 0 20px;
+  border: 1px solid #274964;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #03080b;
+  color: #91cfe6;
+  margin-bottom: 16px; }
+
+.battle-window {
+  margin-top: 16px;
+  height: 400px;
+  overflow-y: auto; }
+  .battle-window p {
+    word-wrap: break-word; }
+
+.battle-menu {
+  height: auto;
+  padding-bottom: 0; }
+  .battle-menu .attack, .battle-menu .abilities li {
+    display: inline-block;
+    border: 1px solid #274964;
+    border-radius: 10px;
+    height: 40px;
+    width: auto;
+    background: -webkit-linear-gradient(#002134, #011d2b);
+    background: -o-linear-gradient(#002134, #011d2b);
+    background: -moz-linear-gradient(#002134, #011d2b);
+    background: linear-gradient(#002134, #011d2b);
+    padding: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    /* Prevent highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .battle-menu .attack:hover, .battle-menu .abilities li:hover {
+      border: 1px solid #2d8db5;
+      -webkit-transition: border 0.2s;
+      transition: border 0.2s; }
+  .battle-menu .attack {
+    display: block;
+    margin-bottom: 10px; }
+  .battle-menu .abilities {
+    text-align: center; }
+    .battle-menu .abilities li {
+      margin: 0 5px;
+      margin-bottom: 10px; }
+
+.computer {
+  height: 100%; }
+  .computer .simulator-menu-1, .computer .simulator-menu-2 {
+    display: none; }
+    .computer .simulator-menu-1 .simulator-options, .computer .simulator-menu-2 .simulator-options {
+      height: auto;
+      margin: 0;
+      margin-top: 3px;
+      text-align: center; }
+      .computer .simulator-menu-1 .simulator-options .new-game, .computer .simulator-menu-2 .simulator-options .new-game {
+        display: inline-block;
+        border: 1px solid #274964;
+        border-radius: 10px;
+        height: 40px;
+        width: auto;
+        background: -webkit-linear-gradient(#002134, #011d2b);
+        background: -o-linear-gradient(#002134, #011d2b);
+        background: -moz-linear-gradient(#002134, #011d2b);
+        background: linear-gradient(#002134, #011d2b);
+        padding: 0 10px;
+        text-align: center;
+        cursor: pointer;
+        line-height: 40px;
+        text-align: center;
+        /* Prevent highlight */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: 0 auto;
+        height: 40px;
+        width: auto;
+        background-color: #fff; }
+        .computer .simulator-menu-1 .simulator-options .new-game:hover, .computer .simulator-menu-2 .simulator-options .new-game:hover {
+          border: 1px solid #2d8db5;
+          -webkit-transition: border 0.2s;
+          transition: border 0.2s; }
+      .computer .simulator-menu-1 .simulator-options ul li, .computer .simulator-menu-2 .simulator-options ul li {
+        display: inline-block;
+        border: 1px solid #274964;
+        border-radius: 10px;
+        height: 40px;
+        width: auto;
+        background: -webkit-linear-gradient(#002134, #011d2b);
+        background: -o-linear-gradient(#002134, #011d2b);
+        background: -moz-linear-gradient(#002134, #011d2b);
+        background: linear-gradient(#002134, #011d2b);
+        padding: 0 10px;
+        text-align: center;
+        cursor: pointer;
+        line-height: 40px;
+        text-align: center;
+        /* Prevent highlight */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: 0 5px;
+        height: 40px; }
+        .computer .simulator-menu-1 .simulator-options ul li:hover, .computer .simulator-menu-2 .simulator-options ul li:hover {
+          border: 1px solid #2d8db5;
+          -webkit-transition: border 0.2s;
+          transition: border 0.2s; }
+
+/* ========================================
+  JavaScript Classes
+======================================== */
+.win {
+  color: blue; }
+
+.level-up {
+  color: green; }
+
+.lose {
+  color: red; }

@@ -1,0 +1,348 @@
+/* Battle Simulator - CSS */
+
+
+@import 'reset';
+@import 'grid-framework';
+
+html, body {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+	font-family: 'Quantico', Arial, sans-serif;
+}
+
+
+
+/* ========================================
+  Variables
+======================================== */
+$menuBorder: #2D8DB5;
+$menuBodyTop: #002134;
+$menuBodyBottom: #011D2B;
+$windowBorder: #274964;
+$windowBody: #03080B;
+$headers: #D6B54E;
+$text: #91CFE6;
+
+
+
+/* ========================================
+  Default Styles
+======================================== */
+@mixin menu-style() {
+    background: -webkit-linear-gradient($menuBodyTop, $menuBodyBottom);
+    background: -o-linear-gradient($menuBodyTop, $menuBodyBottom);
+    background: -moz-linear-gradient($menuBodyTop, $menuBodyBottom);
+    background: linear-gradient($menuBodyTop, $menuBodyBottom);
+
+    /* internal and external shadows */
+    -webkit-box-shadow: 0px 0px 6px 10px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+	   -moz-box-shadow: 0px 0px 6px 10px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+	        box-shadow: 0px 0px 0px 8px rgba(3, 8, 11, 0.82), inset 0px 0px 6px 5px rgba(3, 8, 11, 0.82);
+
+	border: 2px solid $menuBorder;
+	border-radius: 10px;
+}
+
+@mixin window-style() {
+	margin: 3px 0 20px;
+	border: 1px solid $windowBorder;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: $windowBody;
+	color: $text;
+}
+
+@mixin button-style() {
+	display: inline-block;
+	border: 1px solid $windowBorder;
+    border-radius: 10px;
+    height: 40px;
+    width: auto;
+    background: -webkit-linear-gradient($menuBodyTop, $menuBodyBottom);
+    background: -o-linear-gradient($menuBodyTop, $menuBodyBottom);
+    background: -moz-linear-gradient($menuBodyTop, $menuBodyBottom);
+    background: linear-gradient($menuBodyTop, $menuBodyBottom);
+    padding: 0 10px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+
+    /* Prevent highlight */
+  	-webkit-touch-callout: none;
+  	-webkit-user-select: none;
+  	-khtml-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+
+    &:hover {
+    	border: 1px solid $menuBorder;
+    	-webkit-transition: border 0.2s;
+    	transition: border 0.2s;
+    }
+}
+ 
+h2 {
+	color: $headers;
+}
+
+h3 {
+	font-weight: 700;
+}
+
+
+
+/* ========================================
+  header
+======================================== */
+header {
+	position: relative;
+	height: 100px;
+
+	h1 {
+		position: absolute;
+		top: 50%; left: 50%;
+		margin-right: -50%;
+		/* Offset by half the width of the header */
+		-ms-transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		font-size: 40px;
+		font-weight: 700;
+		font-family: 'Oleo Script';
+	}
+}
+
+
+
+/* ========================================
+  content
+======================================== */
+.content {
+	@include container-fixed();
+	height: auto;
+}
+
+
+
+/* ----------------------------------------
+  content: character-select
+---------------------------------------- */
+.character-select {
+	@include row-full();
+	@include menu-style();
+	position: relative;
+	height: auto;
+	padding: 15px;
+	text-align: center;
+	
+	h1 {
+		margin-bottom: 20px;
+		font-size: 20px;
+	}
+
+	h1, form {
+		color: $headers;
+	}
+
+	input[type="text"], .profession, .r1-c1, .r2-c1, .r2-c2 {
+		@include window-style();
+	}
+
+	input[type="text"] {
+		margin: 3px 0 20px;
+		width: 280px;
+		padding: 5px;
+		text-align: center;
+		overflow: hidden;
+		font-family: 'Quantico';
+		font-size: 16px;
+	}
+
+	.profession {
+		display: inline-block;
+		margin: 3px 5px 20px;
+		height: 260px;
+		width: 200px;
+		padding: 5px 0;
+		background-color: $windowBody;
+
+		img {
+			max-height: 100%;
+			cursor: pointer;
+		}
+	}
+	
+	.character-select-description {
+		margin: 0 auto 20px auto;
+		height: auto;
+		width: 280px;
+
+		div {
+			padding: 5px 0;
+		}
+
+		.r1-c1 {
+			min-height: 44px;
+			margin-top: 0;
+			margin-bottom: 5px;
+			border-radius: 5px;
+		}
+
+		.r2-c1, .r2-c2 {
+			display: inline-block;
+			margin-bottom: 0;
+			min-height: 62px;
+			width: 50%;
+		}
+
+		.r2-c1 {
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-right: none;
+		}
+
+		.r2-c2 {
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-left: none;
+		}
+	}
+
+	.submit {
+		@include button-style();
+		margin: 0 auto 20px auto;
+		width: 280px;
+	}
+}
+
+
+
+/* ----------------------------------------
+  content: simulator
+---------------------------------------- */
+.simulator {
+	@include row-full();
+	@include menu-style();
+	display: none;
+	height: auto;
+
+	h2 {
+		padding-left: 10px;
+	}
+}
+
+.player, .battle, .computer {
+	height: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.player, .computer {
+	@include column(3);
+
+	.player-stats, .player-inventory, .computer-stats, .computer-inventory, .simulator-options {
+		@include window-style();
+		height: auto;
+	}
+}
+
+.battle {
+	@include column(6);
+}
+
+.battle-window, .battle-menu {
+	@include window-style();
+	margin-bottom: 16px;
+}
+
+.battle-window {
+	margin-top: 16px;
+	height: 400px;
+	overflow-y: auto;
+
+	p {
+		word-wrap: break-word;
+	}
+}
+
+.battle-menu {
+	height: auto;
+	padding-bottom: 0;
+
+	.attack, .abilities li {
+		@include button-style();
+	}
+
+	.attack {
+		display: block;
+		margin-bottom: 10px;	
+	}
+
+	.abilities {
+		text-align: center;
+
+		li {
+			margin: 0 5px;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.computer {
+	height: 100%;
+
+	.simulator-menu-1, .simulator-menu-2 {
+		display: none;
+
+		.simulator-options {
+			height: auto;
+			margin: 0;
+			margin-top: 3px;
+			text-align: center;
+
+			.new-game {
+				@include button-style();
+				margin: 0 auto;
+				height: 40px;
+				width: auto;
+				background-color: #fff;
+			}
+
+			ul {
+
+				li {
+					@include button-style();
+					margin: 0 5px;
+					height: 40px;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ========================================
+  JavaScript Classes
+======================================== */
+.win {
+	color: blue;
+}
+
+.level-up {
+	color: green;
+}
+
+.lose {
+	color: red;
+}

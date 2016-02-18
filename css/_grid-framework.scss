@@ -1,0 +1,171 @@
+/* Battle Simulator - Grid Framework */
+
+
+/*========================================*/
+  /* User Defined Grid Variables */
+/*========================================*/
+/* Number of grid columns */
+$grid-columns: 12;
+
+/* Boundaries for fluid rows */
+$max-width: 1440px;
+$min-width: 1px;
+
+/* Break points for fixed rows */
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+/* Sticky footer height */
+$footer-height: 32px;  /* Must be exact height of footer - taking into account borders of rows + container */
+
+
+
+/*========================================*/
+  /* Clearfix */
+/*========================================*/
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+ 
+.clearfix:after,
+.container:after {
+  clear: both;
+}
+
+
+
+/*========================================*/
+  /* Containers - fluid */
+/*========================================*/
+/* Fluid container with margins */
+@mixin container() {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+/* Fluid container without margins - full width */
+@mixin container-full() {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* HTML containers for inline styling */
+.container {
+  @include container();
+}
+
+.container-full {
+  @include container-full();
+}
+
+
+
+/*========================================*/
+  /* Container - fixed + breakpoints */
+/*========================================*/
+@mixin container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  @media (min-width: $screen-xs) {width: auto;}
+  @media (min-width: $screen-sm) {width: 750px;}
+  @media (min-width: $screen-md) {width: 970px;}
+  @media (min-width: $screen-lg) {width: 1170px;}
+}
+
+
+
+/*========================================*/
+  /* Rows */
+/*========================================*/
+/* Normal row - allows combined external (container) + internal (column) margins */
+@mixin row() {
+  display: block;
+  @extend .clearfix;    /* clears for rows and containers */
+}
+
+/* Full width row - without external (container) margins */
+/* Combine with 'column-full' to remove extra internal (column) margins */
+@mixin row-full() {
+  display: block;
+  margin-right: -15px;
+  margin-left: -15px;
+  @extend .clearfix;
+}
+
+/* Normal row - with purely external (container + row) margins - useful for borders */
+/* Combine with 'column-full' to remove extra internal (column) margins */
+@mixin row-ext() {
+  display: block;
+  margin-right: 15px;
+  margin-left: 15px;
+  @extend .clearfix;
+}
+
+
+
+/*========================================*/
+  /* Boundaries - fluid rows */
+/*========================================*/
+/* Set boundaries for full width fluid rows (or containers) - e.g. headers + footers */
+@mixin boundaries() {
+  max-width: $max-width;
+  min-width: $min-width;
+  margin: 0 auto;
+}
+
+
+
+/*========================================*/
+  /* Columns */
+/*========================================*/
+/* Columns with margins */
+@mixin column($size) {
+  width: ((100 / ($grid-columns / $size)) * 1%);
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Columns without margins - full width */ 
+@mixin column-full($size) {
+  width: ((100 / ($grid-columns / $size)) * 1%);
+  float: left;
+  position: relative;
+  min-height: 1px;
+}
+
+
+
+/*========================================*/
+  /* Sticky Footer */
+/*========================================*/
+/* Requires margin:0 and height:100% on html + body elements */
+/* Be careful using margins on/near the footer - use padding instead */
+/* Use these classes directly or apply via @extend */
+
+/* Main content wrapper */
+.page-container {
+  min-height: 100%;
+  height: auto !important;  /* Sets minimum height in IE6 and below */
+  height: 100%;
+  margin: 0 auto ($footer-height * -1);
+}
+
+/* Sticky footer */
+/* .push placed at end of .page-container */
+/* .sticky-footer is only element placed outside of .page-container */
+/* Footer is pulled up by the negative margin on the page-container to occupy the empty space created by .push */
+.push,
+.sticky-footer {
+  height: $footer-height;  /* Height of the footer */
+  clear: both;
+}
