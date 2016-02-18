@@ -14,18 +14,18 @@ Develop a browser based game to test comprehension of JavaScript based object-or
 
 ##### Game Features
 <ul>
-	<li>Character creation screen - profession specific min and max values used to randomly generate statistic values.</li>
+	<li>Character creation screen - Profession specific min and max values used to randomly generate statistic values.</li>
 	<li>Character XP progression with unlockable abilities (levels 1 - 15).</li>
-	<li>Fully functioning combat system - character with highest agility attacks first.</li>
+	<li>Fully functioning combat system - Character with highest agility attacks first.</li>
 	<li>Three difficulty settings with randomly generated opponents.</li>
-	<li>Able to influence character statistics during battle to influence the outcome.<li>
+	<li>Able to influence character statistics during battle to influence the outcome.</li>
 </ul>
 
 ##### To Do List
 <ul>
-	<li>Cross browser compatibility - doesn't currently work with IE.</li>
+	<li>Cross browser compatibility - Doesn't currently work with IE.</li>
     <li>Media queries - Fully responsive.</li>
 </ul>
 
 ##### Live Preview - _Work in Progress_
-[]()
+[http://ash-lee.github.io/BattleSimulator](http://ash-lee.github.io/BattleSimulator)
