@@ -28,12 +28,12 @@ var playerClassAttributes = [
     agility: {min: 1, max: 5, lvl: 2},
     constitution: {min: 10, max: 15, lvl: 2},
     abilities: [
-      {lvl: 1, ability: "Force Push", description: "knocked the opponent backwards with the force", power: 30, effect: function() {}},
-      {lvl: 2, ability: "Force Heal", description: "used the force to heal - HP (+80)", power: 0, effect: function(self, enemy) {self.currentHealth += 80; if (self.currentHealth > self.maxHealth) self.currentHealth = self.maxHealth;}},
+      {lvl: 1, ability: "Force Push", description: "knocked the opponent backwards with the force!", power: 30, effect: function() {}},
+      {lvl: 1, ability: "Force Heal", description: "used the force to heal - HP (+80)", power: 0, effect: function(self, enemy) {self.currentHealth += 80; if (self.currentHealth > self.maxHealth) self.currentHealth = self.maxHealth;}},
       {lvl: 3, ability: "Power Strike", description: "struck a critical hit! - STR (+5)", power: 30, effect: function(self, enemy) {self.strength += 5;}},
       {lvl: 6, ability: "Lightsaber Throw", description: "used lightsaber as a projectile!", power: 40, effect: function() {}},
       {lvl: 9, ability: "Force Projectile", description: "propelled debris and lowered opponents defence! - AC (-5)", power: 50, effect: function(self, enemy) {enemy.ac -= 5;}},
-      {lvl: 12, ability: "Force Pull", description: "forcefully pulled and slowed the opponent! - AGI (-4)", power: 40, effect: function(self, enemy) {enemy.agility -= 4;}},
+      {lvl: 12, ability: "Force Pull", description: "forcefully pulled and slowed the opponent! - AGI (-4)", power: 45, effect: function(self, enemy) {enemy.agility -= 4;}},
       {lvl: 15, ability: "Focus Attack", description: "channelled the power of the force! - STR (+15)", power: 35, effect: function(self, enemy) {self.strength += 15;}}
     ]
   },
@@ -47,11 +47,11 @@ var playerClassAttributes = [
     agility: {min: 10, max: 15, lvl: 4},
     constitution: {min: 5, max: 10, lvl: 2},
     abilities: [
-      {lvl: 1, ability: "Force Push", description: "knocked the opponent backwards with the force", power: 30, effect: function(self, enemy) {}},
-      {lvl: 2, ability: "Force Heal", description: "used the force to heal - HP (+120)", power: 0, effect: function(self, enemy) {self.currentHealth += 100; if (self.currentHealth > self.maxHealth) self.currentHealth = self.maxHealth;}},
-      {lvl: 3, ability: "Force Block", description: "used the force to help repel damage - AC (+8)", power: 0, effect: function(self, enemy) {self.ac += 8;}},
-      {lvl: 6, ability: "Force Projectile", description: "propelled debris and lowered opponents defence! - AC (-5)", power: 60, effect: function(self, enemy) {enemy.ac -= 5;}},
-      {lvl: 9, ability: "Force Lift", description: "smashed the opponent into the ground!", power: 50, effect: function(self, enemy) {}},
+      {lvl: 1, ability: "Force Push", description: "knocked the opponent backwards with the force!", power: 30, effect: function(self, enemy) {}},
+      {lvl: 1, ability: "Force Heal", description: "used the force to heal - HP (+120)", power: 0, effect: function(self, enemy) {self.currentHealth += 100; if (self.currentHealth > self.maxHealth) self.currentHealth = self.maxHealth;}},
+      {lvl: 3, ability: "Force Block", description: "used the force to help repel damage - AC (+4)", power: 0, effect: function(self, enemy) {self.ac += 4;}},
+      {lvl: 6, ability: "Force Projectile", description: "propelled debris and lowered opponents defence! - AC (-5)", power: 50, effect: function(self, enemy) {enemy.ac -= 5;}},
+      {lvl: 9, ability: "Force Lift", description: "smashed the opponent into the ground!", power: 60, effect: function(self, enemy) {}},
       {lvl: 12, ability: "Force Influence", description: "weakened the opponent! - CON (-2) | STR (-3) | AGI (-4)", power: 0, effect: function(self, enemy) {enemy.constitution -= 2; enemy.strength -= 3; enemy.agility -= 4;}},
       {lvl: 15, ability: "Force Focus", description: "channelled the power of the force - AGI (+8) | FOR (+10)", power: 0, effect: function(self, enemy) {self.agility += 8; self.force += 10;}}
     ]
@@ -72,7 +72,7 @@ var compClassAttributes = [
     weapon: new Lightsaber("Standard", "Double", "Red", false),
     armour: new Armour("Light Battle Armour", 5),
     abilities: [
-      {ability: "Force Push", description: "knocked you backwards using the force!", power: 15, effect: function(self, playerCharacter) {}}
+      {ability: "Force Push", description: "knocked you backwards using the force!", power: 20, effect: function(self, playerCharacter) {}}
     ],
   },
   
@@ -87,8 +87,8 @@ var compClassAttributes = [
     weapon: new Lightsaber("Electrum", "Single", "Red", true),
     armour: new Armour("Medium Battle Armour", 10),
     abilities: [
-      {ability: "Force Push", description: "knocked you backwards using the force!", power: 15, effect: function(self, playerCharacter) {}},
-      {ability: "Force Choke", description: "choked you with the power of the dark side! - CON (-1)", power: 45, effect: function(self, playerCharacter) {playerCharacter.constitution -= 1;}}
+      {ability: "Force Push", description: "knocked you backwards using the force!", power: 25, effect: function(self, playerCharacter) {}},
+      {ability: "Force Choke", description: "choked you with the power of the dark side! - CON (-1)", power: 35, effect: function(self, playerCharacter) {playerCharacter.constitution -= 1;}}
     ],
   },
   
@@ -103,9 +103,9 @@ var compClassAttributes = [
     weapon: new Lightsaber("Curved", "Single", "Red", false),
     armour: new Armour("Robes", 1),
     abilities: [
-      {ability: "Force Push", description: "knocked you backwards using the force!", power: 15, effect: function(self, playerCharacter) {}},
-      {ability: "Force Choke", description: "choked you with the power of the dark side! - CON (-2)", power: 20, effect: function(self, playerCharacter) {playerCharacter.constitution -= 2;}},
-      {ability: "Force Lightning", description: "unleashed the power of the dark side! - AGI (-3) | CON (-3)", power: 30, effect: function(self, playerCharacter) {playerCharacter.constitution -= 3; playerCharacter.agility -= 3;}}
+      {ability: "Force Push", description: "knocked you backwards using the force!", power: 30, effect: function(self, playerCharacter) {}},
+      {ability: "Force Choke", description: "choked you with the power of the dark side! - CON (-2)", power: 35, effect: function(self, playerCharacter) {playerCharacter.constitution -= 2;}},
+      {ability: "Force Lightning", description: "unleashed the power of the dark side! - AGI (-3) | CON (-3)", power: 45, effect: function(self, playerCharacter) {playerCharacter.constitution -= 3; playerCharacter.agility -= 3;}}
     ],
   },
 
@@ -239,7 +239,7 @@ function Character() {
   this.defend = function(dmg) {
     // Calculate how much damage is absorbed by defence rating
     var def = Math.round(this.defRating() / 100 * dmg);
-    return (dmg - def === 0 ? 0 : dmg - def);
+    return (dmg - def <= 0 ? 0 : dmg - def);
   };
 
 
@@ -254,7 +254,7 @@ function Character() {
       dmg = this.attack(action, enemy);
       dmg[1] = enemy.defend(dmg[1]);
       enemy.currentHealth -= dmg[1];
-      enemy.setAc();
+      //enemy.setAc();
       battleText += "<p>" + this.charName + " used " + action + " - " + enemy.charClass + " received " + dmg[1] + " dmg</p>";
       if (dmg[0]) battleText += "<p>" + this.charName + " " + dmg[0] + "</p>";
       if (enemy.currentHealth <= 0) {
@@ -265,7 +265,7 @@ function Character() {
       dmg = enemy.attack(this);
       dmg[1] = this.defend(dmg[1]);
       this.currentHealth -= dmg[1];
-      this.setAc();
+      //this.setAc();
       battleText += "<p>" + enemy.charClass + " used " + dmg[0] + " - " + this.charName + " received " + dmg[1] + " dmg</p>";
       if (dmg[2]) battleText += "<p>" + enemy.charClass + " " + dmg[2] + "</p>";
 
@@ -275,7 +275,7 @@ function Character() {
       dmg = enemy.attack(this);
       dmg[1] = this.defend(dmg[1]);
       this.currentHealth -= dmg[1];
-      this.setAc();
+      //this.setAc();
       battleText += "<p>" + enemy.charClass + " used " + dmg[0] + " - " + this.charName + " received " + dmg[1] + " dmg</p>";
       if (dmg[2]) battleText += "<p>" + enemy.charClass + " " + dmg[2] + "</p>";
       if (this.currentHealth <= 0) {
@@ -286,7 +286,7 @@ function Character() {
       dmg = this.attack(action, enemy);
       dmg[1] = enemy.defend(dmg[1]);
       enemy.currentHealth -= dmg[1];
-      enemy.setAc();
+      //enemy.setAc();
       battleText += "<p>" + this.charName + " used " + action + " - " + enemy.charClass + " received " + dmg[1] + " dmg</p>";
       if (dmg[0]) battleText += "<p>" + this.charName + " " + dmg[0] + "</p>";
 
@@ -607,7 +607,6 @@ $(".submit").on('click', function() {
 // Initiate simulation
 newComputerChar(1);
 $battle.find('.battle-window').html(battleText);
-computerChar.currentHealth = 40;
 
 
 $battle.on('click', ".attack, .abilities li", function() {
@@ -645,6 +644,7 @@ $battle.on('click', ".attack, .abilities li", function() {
     // Process computer defeat, allocate XP reward and check for level-up
     battleText += computerChar.die();
     battleText += playerChar.lvlUp(computerChar.giveXp());
+    playerChar.setAc();
     $player.find('.player-stats').empty().html(playerChar.viewStats());
 
     // Show next opponent menu
