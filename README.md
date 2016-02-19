@@ -1,7 +1,7 @@
 ### Personal Project - Battle Simulator
 
 #### Personal Brief
-Develop a browser based game to test comprehension of JavaScript based object-oriented programming and prototypal inheritance.
+Develop a game to test comprehension of JavaScript based object-oriented programming and prototypal inheritance.
 
 ##### Skills Developed
 <ul>
